@@ -12,7 +12,7 @@ export const loader = async ({ context }: LoaderArgs) => {
             username: "steele123",
             token: context.GITHUB_TOKEN as string
         })
-        const newResponse = new Response(response.clone().body, response)
+        const newResponse = response.clone()
         newResponse.headers.set("Cache-Control", "public, max-age=3600")
         await cache.put("https://api.github.com/graphql", newResponse)
     }
