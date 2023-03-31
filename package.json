@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "typecheck": "tsc",
     "wrangler:dev": "wrangler pages dev ./public",
-    "wrangler:pub": "pnpm build && wrangler pages publish ./public"
+    "wrangler:pub": "pnpm build && wrangler pages publish ./public --branch production"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.0.5",
