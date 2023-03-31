@@ -77,7 +77,7 @@ export default function _index() {
                         </a>
                     </div>
                     <div className="text-accents-5 font-medium text-sm">{new Date(contributions.weeks[0].firstDay).toLocaleDateString()} &rarr; {new Date(contributions.weeks[contributions.weeks.length - 1].firstDay).toLocaleDateString()}</div>
-                    <div className="flex flex-wrap gap-x-2 gap-y-7 py-5">
+                    <div className="flex flex-wrap gap-x-2 gap-y-3 py-5">
                         {contributions.weeks.map((week, index) => (
                             <div key={week.firstDay} className="flex flex-col gap-2">
                                 {week.days.map((day) => (
