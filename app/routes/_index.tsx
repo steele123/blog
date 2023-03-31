@@ -3,6 +3,7 @@ import {json, LoaderArgs} from "@remix-run/cloudflare";
 import {useLoaderData} from "@remix-run/react";
 import {getGithubContributions, GithubCommitsResponse} from "~/lib/github";
 import DiscordLogo from "~/components/discord-logo";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "~/components/tooltip";
 
 export const loader = async ({ context }: LoaderArgs) => {
     const cache = (caches as any).default as Cache
@@ -80,13 +81,18 @@ export default function _index() {
                         {contributions.weeks.map((week, index) => (
                             <div key={week.firstDay} className="flex flex-col gap-2">
                                 {week.days.map((day) => (
-                                    <div
-                                        className="w-4 h-4 border rounded"
-                                        style={{
-                                            backgroundColor: day.color,
-                                        }}
-                                        key={day.date}
-                                    />
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipContent>{day.contributionCount} contributions on {new Date(day.date).toLocaleDateString()}</TooltipContent>
+                                            <TooltipTrigger
+                                                className="w-4 h-4 border rounded"
+                                                style={{
+                                                    backgroundColor: day.color,
+                                                }}
+                                                key={day.date}
+                                            />
+                                        </Tooltip>
+                                    </TooltipProvider>
                                 ))}
                             </div>
                         ))}
