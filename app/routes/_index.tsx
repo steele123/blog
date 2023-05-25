@@ -64,7 +64,7 @@ export default function _index() {
                     </div>
                 </div>
                 <div className="text-accents-5 font-medium">
-                    I am a software engineer who loves building complicated yet simple things.
+                    I am a software engineer, I like writing code.
                 </div>
             </div>
             <div className="flex flex-col gap-5">
